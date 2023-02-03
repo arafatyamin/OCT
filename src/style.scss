@@ -3,7 +3,7 @@
         @content;
     }
 }
-@mixin table{
+@mixin tablet{
     @media screen and (max-width: 768px) {
         @content;
     }
@@ -13,6 +13,7 @@
         @content;
     }
 }
+
 
 .formContainer{
     background-color: #a7bcff;
@@ -98,10 +99,14 @@
         height: 85%;
         display: flex;
         overflow: hidden;
+        @include tablet {
+            display: 90%;
+        }
 
         .sidebar{
             flex: 1;
             background-color: #3e3c61;
+            position: relative;
             
             .navbar{
                 display: flex;
@@ -114,6 +119,9 @@
 
                 .logo{
                     font-weight: bold;
+                    @include tablet {
+                        display: none;
+                    }
 
                 }
 
@@ -130,13 +138,23 @@
                     }
     
     
-                    button{
+                    .button{
                         background-color: #5d5b8d;
                         color: #ddddf7;
                         font-size: 10px;
                         border: none;
                         cursor: pointer;
+                        width: 100%;
+                        height: 100%;
+                        padding: 8px;
+                        text-decoration: none;
+                        @include tablet {
+                            position: absolute;
+                            bottom: 10px;
+                        }
                     }
+
+                    
                 }
                 
             }
@@ -159,35 +177,38 @@
                 }
             }
 
-            .userChat{
-                padding: 10px;
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                color: white;
-                cursor: pointer;
+          
+        
+        .userChat{
+             
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            cursor: pointer;
 
-                &:hover{
-                    background-color: #2f2d52;
-                }
-
-                img{
-                    width: 50px;
-                    height: 50px;
-                    border-radius: 50%;
-                    object-fit: cover;
-                }
-
-                .userChatInfo{
-                    span{font-size: 18px; font-weight: 500;}
-                    p{font-size: 14px; color: lightgray}
-                }
+            &:hover{
+                background-color: #2f2d52;
             }
 
+            img{
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            .userChatInfo{
+                span{font-size: 18px; font-weight: 500;}
+                p{font-size: 14px; color: lightgray}
+            }
         }
+    }
+
         .chat{
             flex: 2;
-
+            flex-direction: row;
             .chatInfo{
                 height: 50px;
                 background-color: #5d5b8d;
@@ -214,8 +235,8 @@
             .messages{
                 background-color: #ddddf7;
                 padding: 10px;
-                height: calc(100% - 160px);
-                overflow-x: scroll;
+                height: calc(100% - 130px);
+                overflow: auto;
 
 
                 .message{
@@ -270,10 +291,9 @@
                     }
                 }
             }
-            .input{
-                height: 50px;
+            .input{ 
+                height: 40px;
                 background-color: white;
-                padding: 10px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -284,6 +304,7 @@
                     outline: none;
                     color: #2f2d52;
                     font-size: 18px;
+                    padding-left: 10px;
 
                     &::placeholder{
                         color: lightgray;

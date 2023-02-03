@@ -1,13 +1,13 @@
 import './style.scss';
-import Register from './pages/Register';
-import Login from './pages/Login';
-import Home from './pages/Home';
+import {  RouterProvider } from 'react-router-dom';
+import  router  from './router/Router';
 
 function App() {
   return (
-    <div>
-      <Home></Home>
-    </div>
+
+    
+    <RouterProvider router={router}
+    ></RouterProvider>
   );
 }
 
